@@ -17,6 +17,9 @@ passport.use(
     async (accessToken, refreshToken, profile, done) => {
       //Trigger once user login. We should just save the google id and pass user object to routes (req.user)
       try {
+        console.log(accessToken);
+        console.log(refreshToken);
+        console.log(profile)
         const user = await Channel.findOrCreate(profile);
         return done(null, user);
       } catch (err) {
